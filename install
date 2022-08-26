@@ -7,7 +7,7 @@ readonly reporoot=$(readlink -f $(dirname $0))
 create_symlink () {
     local -r src_file="$1"
     local -r dst_file="${HOME}/${1#${reporoot}/files/}"
-    ln -s "$src_file" "dst_file"
+    ln -s "$src_file" "$dst_file"
 }
 
 check_file() {
