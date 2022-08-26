@@ -7,8 +7,6 @@ readonly reporoot=$(readlink -f $(dirname $0))
 create_symlink () {
     local -r src_file="$1"
     local -r dst_file="${HOME}/${1#${reporoot}/files/}"
-    local -r dst_dir="$(dirname "$dst_file")"
-    [[ -d $dst_dir ]] || mkdir -p "$dst_dir"
     ln -s "$src_file" "dst_file"
 }
 
@@ -18,7 +16,7 @@ check_file() {
 
     if [[ -e "$dst_file" ]]; then
         printf '%s: File already exists\n' "$dst_file"
-	return 1
+        return 1
     fi
 }
 
@@ -28,16 +26,16 @@ while IFS= read -r -d '' file; do
     if ! check_file "$file"; then
         check_failed=1
     fi
-done < <(find "${reporoot}/files" -print0)
+done < <(find "${reporoot}/files" -maxdepth 1 -mindepth 1 -print0)
 
 if (( check_failed )); then
     printf 'Could not link all files, so nothing done\n'
     exit 1
 fi
 
-for IFS= read -r -d '' file; do
+while IFS= read -r -d '' file; do
     create_symlink "$file"
-done < <(find "${reporoot}/files" -print0)
+done < <(find "${reporoot}/files" -maxdepth 1 -mindepth 1 -print0)
 
 printf 'All files linked\n'
 
