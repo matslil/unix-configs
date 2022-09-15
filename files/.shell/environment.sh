@@ -70,7 +70,7 @@ if [[ -d /usr/lib/ccache ]]; then
     PATH="/usr/lib/ccache:$PATH"
 fi
 if [[ -d ${HOME}/.local/bin ]]; then
-    PATH="/home/anders/.local/bin/:$PATH"
+    PATH="$HOME/.local/bin/:$PATH"
 fi
 
 if [[ -d ${GOPATH}/bin ]]; then
@@ -109,5 +109,8 @@ then
     . /usr/local/bin/virtualenvwrapper.sh
 fi
 
+if [ -f "$HOME/.environment.local" ]; then
+    source "$HOME/.environment.local"
+fi
 ##############################################################################
 # vim: expandtab tabstop=4 shiftwidth=4 softtabstop=4                        :

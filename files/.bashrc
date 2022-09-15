@@ -9,6 +9,8 @@ source $SH/functions.sh
 source $BASH/functions.sh
 source $BASH/prompt.sh
 
+[[ -f $HOME/.bashrc.local ]] && source "$HOME/.bashrc.local"
+
 # Test for an interactive shell.  There is no need to set anything
 # past this point for scp and rcp, and it's important to refrain from
 # outputting anything in those cases.
@@ -16,6 +18,8 @@ if [[ $- != *i* ]]; then
 	# Shell is non-interactive.  Be done now
 	return
 fi
+
+export HISTCONTROL=ignoreboth
 
 # uncomment the following to activate bash-completion:
 [[ -f /etc/profile.d/bash-completion ]] && source /etc/profile.d/bash-completion
