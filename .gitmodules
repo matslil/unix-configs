@@ -1,0 +1,6 @@
+[submodule "files/.vim/bundle/Vundle.vim"]
+	path = files/.vim/bundle/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim.git
+[submodule "files/.vim/bundle/YouCompleteMe"]
+	path = files/.vim/bundle/YouCompleteMe
+	url = git@github.com:ycm-core/YouCompleteMe.git

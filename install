@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 set -eEuo pipefail
 
@@ -6,22 +6,20 @@ reporoot=$(readlink -f "$(dirname "$0")")
 readonly reporoot=${reporoot}
 
 create_file () {
-    local -r src_file="$1"
+    local -r src_file=$(realpath "$1")
     local -r dst_file="$2"
+    local -r dst_base_dir=$(dirname "$dst_file")
 
-    if [[ -d "$src_file" ]]; then
-        [[ -d "$dst_file" ]] || mkdir "$dst_file"
-    else
-        ln -s "$src_file" "$dst_file"
-    fi
+    [[ -d "$dst_base_dir" ]] || mkdir -p "$dst_base_dir"
 
+    ln -s "$src_file" "$dst_file"
 }
 
 check_create_file() {
     local -r src_file="$1"
-    local -r dst_file="${HOME}/${1#"${reporoot}"/files/}"
+    local -r dst_file="${HOME}/${1#files/}"
 
-    if [[ ( -d "$dst_file" && -d "$src_file" ) || $src_file == "$(readlink "$dst_file")" ]]; then
+    if [[ $(realpath "$dst_file") == "$reporoot"* ]]; then
         # File updated, nothing to do
         return 0
     fi
@@ -32,7 +30,31 @@ check_create_file() {
     fi
 
     create_file "$src_file" "$dst_file"
+
+    if [[ $src_file == 'files/.vim/bundle/YouCompleteMe' ]]; then
+        (cd files/.vim/bundle/YouCompleteMe && python3 install.py --clangd-completer --rust-completer)
+    fi
 }
+
+submodule_checked_out() {
+    if [[ $1 =~ ^-.* ]]; then
+        return 1
+    else
+        return 0
+    fi
+}
+
+submodule_checkout_if_needed() {
+    while read -r line; do
+        if ! submodule_checked_out "$line"; then
+            git submodule init
+            git submodule update --init --recursive
+            return 0
+        fi
+    done < <(git submodule status --recursive)
+}
+
+submodule_checkout_if_needed
 
 check_failed=0
 
@@ -40,7 +62,7 @@ while IFS= read -r -d '' file; do
     if ! check_create_file "$file"; then
         check_failed=1
     fi
-done < <(find "${reporoot}/files" -mindepth 1 -print0)
+done < <(git ls-files -z files)
 
 if (( check_failed )); then
     printf 'Some file were not updated, remove them and re-run script if you want them updated too\n'
