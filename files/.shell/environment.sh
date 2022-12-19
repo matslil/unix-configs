@@ -21,8 +21,6 @@ umask 022  # g-w,o-w
 
 mesg n     # Disable write-messages
 
-stty -ixon
-
 # {{{ Terminal settings
 [[ "$COLORTERM" == "gnome-terminal" ]] && export TERM="gnome-256color"
 case "${TERM}" in
@@ -38,10 +36,14 @@ case "${TERM}" in
         ;;
 esac
 
-# Check the color support of the current terminal. Always use this for color
-# related things, or shit might blow up
-C=$(tput colors)
-# }}}
+if [ -n "$XTERM" ]; then
+    stty -ixon
+
+    # Check the color support of the current terminal. Always use this for color
+    # related things, or shit might blow up
+    C=$(tput colors)
+    # }}}
+fi
 
 for add_path in /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin
 do
