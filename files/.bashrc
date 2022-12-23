@@ -15,8 +15,8 @@ source $BASH/prompt.sh
 # past this point for scp and rcp, and it's important to refrain from
 # outputting anything in those cases.
 if [[ $- != *i* ]]; then
-	# Shell is non-interactive.  Be done now
-	return
+    # Shell is non-interactive.  Be done now
+    return
 fi
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -35,6 +35,21 @@ shopt -s checkwinsize
 
 # uncomment the following to activate bash-completion:
 [[ -f /etc/profile.d/bash-completion ]] && source /etc/profile.d/bash-completion
+
+# mark registers a directory short-cut, jump goes to such a short-cut
+export MARKPATH=$HOME/.marks
+function jump {
+    cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
+}
+function mark {
+    mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
+}
+function unmark {
+    rm -i "$MARKPATH/$1"
+}
+function marks {
+    ls -l "$MARKPATH" | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
+}
 
 ##############################################################################
 # vim: expandtab tabstop=4 shiftwidth=4 softtabstop=4                        :
