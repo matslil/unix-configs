@@ -7,6 +7,12 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NOTE!
+" When changing below, make sure to run the following in vim:
+"     :PluginInstall
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
@@ -17,14 +23,35 @@ Plugin 'VundleVim/Vundle.vim'
 " :Git command
 Plugin 'tpope/vim-fugitive'
 
+" Keep ctags updated
+Plugin 'ludovicchabant/vim-gutentags'
+
 " reStructuredText support
-Plugin 'Rykka/riv.vim'
+Plugin 'habamax/vim-rst'
 
 " Support .editorconfig files (https://editorconfig.org/)
 Plugin 'editorconfig/editorconfig-vim'
 
 " Rust syntax highlighting
 Plugin 'rust-lang/rust.vim'
+
+" Nerdtree sidebar file browser
+" :NERDTree
+Plugin 'preservim/nerdtree'
+
+" Add git status markers on files in NERDTree
+Plugin 'xuyuanp/nerdtree-git-plugin'
+
+" Show vim undo changes as a tree structure in a sidebar
+" :UndootreeToogle
+Plugin 'mbbill/undotree'
+
+" Browse source tags in a sidebar
+" :help tagbar
+Plugin 'preservim/tagbar'
+
+" Manage NERDTree, undotree and tagbar
+Plugin 'zhaosheng-pan/vim-sidebar-manager'
 
 " Dissable editorconfig for Fugitive (Git) and remove (SCP) files
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
@@ -73,3 +100,44 @@ set list
 
 " TAB handling
 set tabstop=4 expandtab shiftwidth=4
+
+" Setup sidebar manager
+let g:NERDTreeWinPos = 'left'
+let g:NERDTreeWinSize = 80
+let g:NERDTreeQuitOnOpen = 0
+let g:tagbar_left = 1
+let g:tagbar_width = 80
+let g:tagbar_autoclose = 0
+let g:tagbar_autofocus = 1
+let g:undotree_SetFocusWhenToggle = 1
+let g:undotree_SplitWidth = 80
+
+let g:sidebars = {
+  \ 'nerdtree': {
+  \     'position': 'left',
+  \     'check_win': {nr -> getwinvar(nr, '&filetype') ==# 'nerdtree'},
+  \     'open': 'NERDTree',
+  \     'close': 'NERDTreeClose'
+  \ },
+  \ 'tagbar': {
+  \     'position': 'left',
+  \     'check_win': {nr -> bufname(winbufnr(nr)) =~ '__Tagbar__'},
+  \     'open': 'TagbarOpen',
+  \     'close': 'TagbarClose'
+  \ },
+  \ 'undotree': {
+  \     'position': 'left',
+  \     'check_win': {nr -> getwinvar(nr, '&filetype') ==# 'undotree'},
+  \     'open': 'UndotreeShow',
+  \     'close': 'UndotreeHide'
+  \ }
+  \ }
+noremap <silent> <f1> :call sidebar#toggle('nerdtree')<CR>
+noremap <silent> <f2> :call sidebar#toggle('tagbar')<CR>
+noremap <silent> <f3> :call sidebar#toggle('undotree')<CR>
+
+let g:startify_session_before_save = ['call sidebar#close_all()']
+
+" buftabs short-cuts
+noremap <silent> <c-j> :bprev<cr>
+noremap <silent> <c-k> :bnext<cr>
