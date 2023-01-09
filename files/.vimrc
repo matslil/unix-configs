@@ -35,6 +35,13 @@ Plugin 'editorconfig/editorconfig-vim'
 " Rust syntax highlighting
 Plugin 'rust-lang/rust.vim'
 
+" Run build commands and parse output
+Plugin 'tpope/vim-dispatch'
+
+" Add useful key mappings, e.g. ]l and [l for next/prev error with make
+" dispatch
+Plugin 'tpope/vim-unimpaired'
+
 " Nerdtree sidebar file browser
 " :NERDTree
 Plugin 'preservim/nerdtree'

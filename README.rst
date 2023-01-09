@@ -95,6 +95,101 @@ ctrl-W
 :tag
    Get list of tags previously jumped to
 
+Moving (vim-unimpaired)
+-----------------------
+
+[a*
+   |:previous|
+
+]a*
+   |:next|
+
+[A*
+   |:first|
+
+]A*
+   |:last|
+
+[b*
+   |:bprevious|
+
+]b*
+   |:bnext|
+
+[B*
+   |:bfirst|
+
+]B*
+   |:blast|
+
+[l*
+   |:lprevious|
+
+]l*
+   |:lnext|
+
+[L*
+   |:lfirst|
+
+]L*
+   |:llast|
+
+[<C-L>*
+   |:lpfile|
+
+]<C-L>*
+   |:lnfile|
+
+[q*
+   |:cprevious|
+
+]q*
+   |:cnext|
+
+[Q*
+   |:cfirst|
+
+]Q*
+   |:clast|
+
+[<C-Q>*
+   |:cpfile| (Note that <C-Q> only works in a terminal if you disable
+
+]<C-Q>*
+   |:cnfile| flow control: stty -ixon)
+
+[t*
+   |:tprevious|
+
+]t*
+   |:tnext|
+
+[T*
+   |:tfirst|
+
+]T*
+   |:tlast|
+
+[<C-T>*
+   |:ptprevious|
+
+]<C-T>*
+   |:ptnext|
+
+[f
+   Go to the file preceding the current one alphabetically in the current file's directory.  In
+   the quickfix window, equivalent to |:colder|.
+
+]f
+   Go to the file succeeding the current one alphabetically in the current file's directory.  In
+   the quickfix window, equivalent to |:cnewer|.
+
+[n
+   Go to the previous SCM conflict marker or diff/patch hunk. Try d[n inside a conflict.
+
+]n
+   Go to the next SCM conflict marker or diff/patch hunk. Try d]n inside a conflict.
+
 Troubleshooting
 ===============
 
