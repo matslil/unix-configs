@@ -6,7 +6,7 @@ This repository contains my own personal settings used for Unix machines.
 If this happens to be useable for anyone else, feel free to copy shamelessly.
 
 Usage
------
+=====
 
 Install using `install` script. Host specific configurations are kept separately:
 
@@ -25,7 +25,7 @@ Install using `install` script. Host specific configurations are kept separately
    Keep simple, since it will be used by more shells than bash.
 
 bash
-----
+====
 
 Functions below will store all short-cuts in ~/.marks as symbolic links.
 
@@ -42,7 +42,7 @@ jump NAME
    Jump to directory pointed to be NAME
 
 tmux
-----
+====
 
 ctrl-a
    Prefix key replacing ctrl-b
@@ -53,15 +53,8 @@ ctrl-a |
 ctrl-a -
    Split window horizontally
 
-
 vim
----
-
-ctrl-j
-   Previous buffer
-
-ctrl-k
-   Next buffer
+===
 
 f1
    Toggle file browser side-bar
@@ -72,8 +65,38 @@ f2
 f3
    Toggle undo tree browser side-bar
 
+Buffers
+-------
+
+ctrl-j
+   Previous buffer
+
+ctrl-k
+   Next buffer
+
+Tags
+----
+
+ctrl-]
+   Jump to tag
+
+g ]
+   Get list of matching tags
+
+g ctrl-]
+   Jump to tag if only one match, otherwise list matching tags
+
+ctrl-t
+   Return from a tag jump
+
+ctrl-W
+   Open tag in preview window
+
+:tag
+   Get list of tags previously jumped to
+
 Troubleshooting
----------------
+===============
 
 `files` directory looks empty
    Add `-A` flag to ls, to show files beginning with period, i.e. most files.
