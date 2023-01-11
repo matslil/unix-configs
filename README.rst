@@ -56,29 +56,23 @@ ctrl-a -
 vim
 ===
 
-General
--------
-
 ======   ==================
+         General
 ======   ==================
 f1       Toggle file browser side-bar
 f2       Toggle code tag browser side-bar
 f3       Toggle undo tree browser side-bar
 ======   ==================
 
-Buffers
--------
-
 ======   ==================
+         Buffers
 ======   ==================
 <C-j>    Previous buffer
 <C-k>    Next buffer
 ======   ==================
 
-Tags
-----
-
 ======   ==================
+         Tags
 ======   ==================
 <C-]>    Jump to tag
 g ]      Get list of matching tags
@@ -88,10 +82,8 @@ g <C-]>  Jump to tag if only one match, otherwise list matching tags
 :tag     Get list of tags previously jumped to
 ======   ==================
 
-Moving
-------
-
 ======   ==================
+         Moving
 ======   ==================
 [ a      `:previous`
 ] a      `:next`
