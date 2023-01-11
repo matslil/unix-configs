@@ -56,139 +56,76 @@ ctrl-a -
 vim
 ===
 
-f1
-   Toggle file browser side-bar
+General
+-------
 
-f2
-   Toggle code tag browser side-bar
-
-f3
-   Toggle undo tree browser side-bar
+======   ==================
+======   ==================
+f1       Toggle file browser side-bar
+f2       Toggle code tag browser side-bar
+f3       Toggle undo tree browser side-bar
+======   ==================
 
 Buffers
 -------
 
-ctrl-j
-   Previous buffer
-
-ctrl-k
-   Next buffer
+======   ==================
+======   ==================
+<C-j>    Previous buffer
+<C-k>    Next buffer
+======   ==================
 
 Tags
 ----
 
-ctrl-]
-   Jump to tag
+======   ==================
+======   ==================
+<C-]>    Jump to tag
+g ]      Get list of matching tags
+g <C-]>  Jump to tag if only one match, otherwise list matching tags
+<C-t>    Return from a tag jump
+<C-W>    Open tag in preview window
+:tag     Get list of tags previously jumped to
+======   ==================
 
-g ]
-   Get list of matching tags
+Moving
+------
 
-g ctrl-]
-   Jump to tag if only one match, otherwise list matching tags
-
-ctrl-t
-   Return from a tag jump
-
-ctrl-W
-   Open tag in preview window
-
-:tag
-   Get list of tags previously jumped to
-
-Moving (vim-unimpaired)
------------------------
-
-[a*
-   |:previous|
-
-]a*
-   |:next|
-
-[A*
-   |:first|
-
-]A*
-   |:last|
-
-[b*
-   |:bprevious|
-
-]b*
-   |:bnext|
-
-[B*
-   |:bfirst|
-
-]B*
-   |:blast|
-
-[l*
-   |:lprevious|
-
-]l*
-   |:lnext|
-
-[L*
-   |:lfirst|
-
-]L*
-   |:llast|
-
-[<C-L>*
-   |:lpfile|
-
-]<C-L>*
-   |:lnfile|
-
-[q*
-   |:cprevious|
-
-]q*
-   |:cnext|
-
-[Q*
-   |:cfirst|
-
-]Q*
-   |:clast|
-
-[<C-Q>*
-   |:cpfile| (Note that <C-Q> only works in a terminal if you disable
-
-]<C-Q>*
-   |:cnfile| flow control: stty -ixon)
-
-[t*
-   |:tprevious|
-
-]t*
-   |:tnext|
-
-[T*
-   |:tfirst|
-
-]T*
-   |:tlast|
-
-[<C-T>*
-   |:ptprevious|
-
-]<C-T>*
-   |:ptnext|
-
-[f
-   Go to the file preceding the current one alphabetically in the current file's directory.  In
-   the quickfix window, equivalent to |:colder|.
-
-]f
-   Go to the file succeeding the current one alphabetically in the current file's directory.  In
-   the quickfix window, equivalent to |:cnewer|.
-
-[n
-   Go to the previous SCM conflict marker or diff/patch hunk. Try d[n inside a conflict.
-
-]n
-   Go to the next SCM conflict marker or diff/patch hunk. Try d]n inside a conflict.
+======   ==================
+======   ==================
+[ a      `:previous`
+] a      `:next`
+[ A      `:first`
+] A      `:last`
+[ b      `:bprevious`
+] b      `:bnext`
+[ B      `:bfirst`
+] B      `:blast`
+[ l      `:lprevious`
+] l      `:lnext`
+[ L      `:lfirst`
+] L      `:llast`
+[ <C-L>  `:lpfile`
+] <C-L>  `:lnfile`
+[ q      `:cprevious`
+] q      `:cnext`
+[ Q      `:cfirst`
+] Q      `:clast`
+[ <C-Q>  `:cpfile` (Note that <C-Q> only works in a terminal if you disable
+] <C-Q>  `:cnfile` flow control: stty -ixon)
+[ t      `:tprevious`
+] t      `:tnext`
+[ T      `:tfirst`
+] T      `:tlast`
+[ <C-T>  `:ptprevious`
+] <C-T>  `:ptnext`
+[ f      Go to the file preceding the current one alphabetically in the current file's directory.  In
+         the quickfix window, equivalent to `:colder`.
+] f      Go to the file succeeding the current one alphabetically in the current file's directory.  In
+         the quickfix window, equivalent to `:cnewer`.
+[ n      Go to the previous SCM conflict marker or diff/patch hunk. Try d[n inside a conflict.
+] n      Go to the next SCM conflict marker or diff/patch hunk. Try d]n inside a conflict.
+======   ==================
 
 Troubleshooting
 ===============
