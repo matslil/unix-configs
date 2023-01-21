@@ -41,17 +41,49 @@ marks
 jump NAME
    Jump to directory pointed to be NAME
 
+Regolith
+========
+
+=====   ===========================
+Key     Description
+=====   ===========================
+<M-w>   Layout: tabbed
+<M-e>   Layout: default
+<M-s>   Layout: stacked
+<M-x>   Layout: Tabbed custom
+<M-r>   Resize mode
+<M-a>   Focus parent
+<M-d>   Dmenu
+<M-f>   Full screen toggle
+<M-h>   Horizontal split
+<M-v>   Vertical split
+<M-j>   Select window left
+<M-k>   Select window down
+<M-l>   Select window up
+<M-ö>   Select window right
+<M-Ret> New terminal
+<M-Sp>  Choose application
+<M-Q>   Kill window
+<M-A-q> Terminate application
+<M-E>   Exit Regolith
+<M-R>   Restart Regolith
+<M-J>   Move window left
+<M-K>   Move window down
+<M-L>   Move window up
+<M-Ö>   Move window right
+=====   ===========================
+
+
 tmux
 ====
 
-ctrl-a
-   Prefix key replacing ctrl-b
-
-ctrl-a |
-   Split window horizontally
-
-ctrl-a -
-   Split window horizontally
+=====   ===========================
+Key     Description
+=====   ===========================
+<C-a>   Prefix key replacing ctrl-b
+<C-a>|  Split window horizontally
+<C-a>-  Split window horizontally
+=====   ===========================
 
 vim
 ===
