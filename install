@@ -5,6 +5,10 @@ set -eEuo pipefail
 reporoot=$(readlink -f "$(dirname "$0")")
 readonly reporoot=${reporoot}
 
+assert_tool () {
+    builtin type -P "$1" &> /dev/null || printf '%s: Missing executable: %s\n' "$1" "$2"
+}
+
 create_file () {
     local -r src_file=$(realpath "$1")
     local -r dst_file="$2"
@@ -69,5 +73,8 @@ if (( check_failed )); then
 else
     printf 'All files linked\n'
 fi
+
+assert_tool flameshot "Screenshots will not be supported until it is installed"
+
 ######################################################################
 # vim: set tabstop=4 expandtab shiftwidth=4

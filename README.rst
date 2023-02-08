@@ -44,34 +44,36 @@ jump NAME
 Regolith
 ========
 
-=====   ===========================
-Key     Description
-=====   ===========================
-<M-w>   Layout: tabbed
-<M-e>   Layout: default
-<M-s>   Layout: stacked
-<M-x>   Layout: Tabbed custom
-<M-r>   Resize mode
-<M-a>   Focus parent
-<M-d>   Dmenu
-<M-f>   Full screen toggle
-<M-h>   Horizontal split
-<M-v>   Vertical split
-<M-j>   Select window left
-<M-k>   Select window down
-<M-l>   Select window up
-<M-ö>   Select window right
-<M-Ret> New terminal
-<M-Sp>  Choose application
-<M-Q>   Kill window
-<M-A-q> Terminate application
-<M-E>   Exit Regolith
-<M-R>   Restart Regolith
-<M-J>   Move window left
-<M-K>   Move window down
-<M-L>   Move window up
-<M-Ö>   Move window right
-=====   ===========================
+=====      ===========================
+Key        Description
+=====      ===========================
+<M-x>      Select tab layout
+<PrntScrn> Run `flameshot --gui --path ~/Pictures` to do a screenshot
+<M-w>      Layout: tabbed
+<M-e>      Layout: default
+<M-s>      Layout: stacked
+<M-x>      Layout: Tabbed custom
+<M-r>      Resize mode
+<M-a>      Focus parent
+<M-d>      Dmenu
+<M-f>      Full screen toggle
+<M-h>      Horizontal split
+<M-v>      Vertical split
+<M-j>      Select window left
+<M-k>      Select window down
+<M-l>      Select window up
+<M-ö>      Select window right
+<M-Ret>    New terminal
+<M-Sp>     Choose application
+<M-Q>      Kill window
+<M-A-q>    Terminate application
+<M-E>      Exit Regolith
+<M-R>      Restart Regolith
+<M-J>      Move window left
+<M-K>      Move window down
+<M-L>      Move window up
+<M-Ö>      Move window right
+=====      ===========================
 
 
 tmux

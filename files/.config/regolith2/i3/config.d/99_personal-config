@@ -1,0 +1,5 @@
+# Set layout to tabbed, using x since it seems unused by default
+bindsym $mod+x layout tabbed
+
+# PrintScreen button invokes flameshot gui screenshot selector tool
+bindsym --release Print exec --no-startup-id "flameshot gui --path ~/Pictures/"
