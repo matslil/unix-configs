@@ -23,7 +23,7 @@ check_create_file() {
     local -r src_file="$1"
     local -r dst_file="${HOME}/${1#files/}"
 
-    if [[ $(realpath "$dst_file") == "$reporoot"* ]]; then
+    if [[ $(realpath --canonicalize-missing "$dst_file") == "$reporoot"* ]]; then
         # File updated, nothing to do
         return 0
     fi
