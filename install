@@ -76,5 +76,7 @@ fi
 
 assert_tool flameshot "Screenshots will not be supported until it is installed"
 
+printf 'Remember that you might need to run ":PluginInstall" in vim, especially if this is a new install\n'
+
 ######################################################################
 # vim: set tabstop=4 expandtab shiftwidth=4
