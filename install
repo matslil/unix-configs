@@ -21,7 +21,12 @@ create_file () {
 
 check_create_file() {
     local -r src_file="$1"
-    local -r dst_file="${HOME}/${1#files/}"
+
+    if [[ $1 == files/* ]]; then
+        local -r dst_file="${HOME}/${1#files/}"
+    else
+        local -r dst_file="${HOME}/${1#"${XDG_SESSION_TYPE}"/}"
+    fi
 
     if [[ $(realpath --canonicalize-missing "$dst_file") == "$reporoot"* ]]; then
         # File updated, nothing to do
@@ -66,7 +71,7 @@ while IFS= read -r -d '' file; do
     if ! check_create_file "$file"; then
         check_failed=1
     fi
-done < <(git ls-files -z files)
+done < <(git ls-files -z files ${XDG_SESSION_TYPE:-})
 
 if (( check_failed )); then
     printf 'Some file were not updated, remove them and re-run script if you want them updated too\n'
