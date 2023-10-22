@@ -24,6 +24,15 @@ Install using `install` script. Host specific configurations are kept separately
    Host specific aliases.
    Keep simple, since it will be used by more shells than bash.
 
+Window manager
+==============
+
+If Wayland is detected then Sway will be assumed, and configurations for this
+window manager will be installed.
+
+If X11 is detected then i3 will be assumed, and configurations for this window
+manager will be installed.
+
 bash
 ====
 
@@ -40,6 +49,64 @@ marks
 
 jump NAME
    Jump to directory pointed to be NAME
+
+Window manager (Sway or Regolith)
+=================================
+
+All keystrokes in combination with windows key (denoted M below).
+
+=====            ===========================
+Key              Basics
+=====            ===========================
+M-Ret            Launch terminal
+M-d              Launch application
+M-S-c            Reload configuration
+M-S-e            Logout
+M-Esc            Screen lock
+
+=====            ===========================
+Key              Window
+=====            ===========================
+M-h, M-Left      Select left window
+M-j, M-Down      Select lower window
+M-k, M-Up        Select upper window
+M-l, M-Right     Select right window
+M-S-h, M-S-Left  Move window left
+M-S-j, M-S-Down  Move window down
+M-S-k, M-S-Up    Move window up
+M-S-l, M-S-Right Move window right
+M-b              Split horizontally
+M-v              Split vertically
+M-f              Toggle fullscreen
+M-S-q            Kill focused window
+M-r              Enter resize mode
+
+=====            ===========================
+Key              Window resize mode
+=====            ===========================
+M-h, M-Left      Shrink width with 10 pixels
+M-j, M-Down      Grow height with 10 pixels
+M-k, M-Up        Shrink height with 10 pixels
+M-l, M-Right     Grow width with 10 pixels
+M-Ret, M-Esc     Exit resize mode
+
+=====            ===========================
+Key              Workspace
+=====            ===========================
+M-0..9           Select workspace 1..10 (0 = 10)
+M-S-0..9         Move current window to workspace 1..10 (0 = 10)
+M-s              Layout: stacking
+M-w              Layout: tabbed
+M-e              Layout: split, toggle between horizontally and vertically
+M-S-Space        Toggle between tiling and floating
+M-a              Select parent
+
+=====            ===========================
+Key              Scratchpad
+=====            ===========================
+M-S-Minus        Move current window to scratchpad
+M-minus          Show next window stored in scratchpad
+
 
 Regolith
 ========
