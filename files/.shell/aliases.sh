@@ -1,9 +1,9 @@
 # aliases.sh
 
 alias cls=clear
-alias ls="ls --color=if-tty"
-alias v='ls -l'
-alias ll='ls -l'
+alias ls="ls --color=if-tty -A"
+alias v='ls -lA'
+alias ll='ls -lA'
 alias dfh='df -h -x none -x tmpfs -x fuse -x rootfs -x devtmpfs'
 alias confcat='sed -e "s/#.*//;/^\s*$/d"'
 alias grep='grep --color'
