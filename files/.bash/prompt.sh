@@ -28,5 +28,7 @@ COL_LINE=$COL_WHITE
 
 export PS1="$COL_LINE/-($COL_USER\u$COL_LINE@$COL_HOST$(hostname -s)$COL_LINE)-<$COL_SCM\$(get_git_status)$COL_LINE>-<$COL_PATH\w$COL_LINE>\n$COL_LINE\-($COL_ECODE\${?}$COL_LINE) \$$COL_NONE "
 
+# Terminal title USER@HOST:PATH
+PROMPT_COMMAND='printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"'
 ##############################################################################
 # vim: expandtab tabstop=4 shiftwidth=4 softtabstop=4                        :
