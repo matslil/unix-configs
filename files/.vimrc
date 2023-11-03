@@ -20,6 +20,17 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 
+" Autoload file syntax highlightning, support numerous languages
+Plugin 'sheerun/vim-polyglot'
+
+" Code formatter, supports format at save or with keystrokes
+" For keystrokes: noremap <F3> :Autoformat<CR>
+" When saving: au BufWrite * :Autoformat
+" Note: The format binary must be installed, e.g. clang-format
+"       for C/C++. See following URL for more information:
+"       https://github.com/vim-autoformat/vim-autoformat#default-formatprograms
+Plugin 'vim-autoformat/vim-autoformat'
+
 " :Git command
 Plugin 'tpope/vim-fugitive'
 
@@ -59,6 +70,14 @@ Plugin 'preservim/tagbar'
 
 " Manage NERDTree, undotree and tagbar
 Plugin 'zhaosheng-pan/vim-sidebar-manager'
+
+" Make files deemed to belong to Linux kernel to adhere to Linux indentation
+" style.
+" Example to adjust what files are deemde to belong to Linux kernel:
+" let g:linuxsty_patterns = [ "/usr/src/", "/linux" ]
+Plugin 'vivien/vim-linux-coding-style'
+
+let g:linuxsty_patterns = [ "/usr/src/", "/linux" ]
 
 " Dissable editorconfig for Fugitive (Git) and remove (SCP) files
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
