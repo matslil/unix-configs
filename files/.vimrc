@@ -77,6 +77,10 @@ Plugin 'zhaosheng-pan/vim-sidebar-manager'
 " let g:linuxsty_patterns = [ "/usr/src/", "/linux" ]
 Plugin 'vivien/vim-linux-coding-style'
 
+" GitHub Co-Pilot, requires subscription
+" Use ':Copilot setup' to get started
+Plugin 'https://github.com/github/copilot.vim'
+
 let g:linuxsty_patterns = [ "/usr/src/", "/linux" ]
 
 " Dissable editorconfig for Fugitive (Git) and remove (SCP) files
