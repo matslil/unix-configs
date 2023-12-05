@@ -43,9 +43,6 @@ Plugin 'habamax/vim-rst'
 " Support .editorconfig files (https://editorconfig.org/)
 Plugin 'editorconfig/editorconfig-vim'
 
-" Rust syntax highlighting
-Plugin 'rust-lang/rust.vim'
-
 " Run build commands and parse output
 Plugin 'tpope/vim-dispatch'
 
@@ -79,7 +76,22 @@ Plugin 'vivien/vim-linux-coding-style'
 
 " GitHub Co-Pilot, requires subscription
 " Use ':Copilot setup' to get started
-Plugin 'https://github.com/github/copilot.vim'
+Plugin 'github/copilot.vim'
+
+" ALE interactive linter
+" Supported languages:
+"     https://github.com/dense-analysis/ale/blob/master/supported-tools.md
+" For language servers:
+"     https://langserver.org/
+" Some language servers:
+"     https://github.com/rcjsuen/dockerfile-language-server
+"     https://github.com/python-lsp/python-lsp-server
+"     https://github.com/artempyanykh/marksman (should work with Ale out of
+"         the box)
+Plugin 'dense-analysis/ale'
+
+" Read gradle.build and setup accordingly
+Plugin 'hsanson/vim-android'
 
 let g:linuxsty_patterns = [ "/usr/src/", "/linux" ]
 

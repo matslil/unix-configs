@@ -1,0 +1,46 @@
+#!/bin/bash -eu
+set -o pipefail
+
+first_file() {
+    for file in "$@"; do
+        if [[ -e "$file" ]]; then
+            echo "$file"
+            break
+        fi
+    done
+}
+
+dockerfile="$1"
+shift
+
+git_root=$(git rev-parse --show-toplevel)
+
+config_locations=(
+    "$PWD/.hadolint.yaml"
+    "$PWD/.hadolint.yml"
+)
+
+if [[ -n $git_root ]]; then
+    config_locations+=(
+        "$git_root/.hadolint.yaml"
+        "$git_root/.hadolint.yml"
+    )
+fi
+
+config_file=$(first_file "${config_locations[@]}")
+
+container_args=(
+    --rm
+    -i
+)
+
+args=()
+if [[ -n $config_file ]]; then
+    args+=(--config "$config_file")
+    container_args+=(-v"$config_file:$config_file")
+fi
+
+args+=("$@")
+
+set -x
+exec podman run "${container_args[@]}" ghcr.io/hadolint/hadolint hadolint "${args[@]}" - < "$dockerfile"
