@@ -13,9 +13,13 @@ first_file() {
 dockerfile="$1"
 shift
 
-git_root=$(git rev-parse --show-toplevel)
+dockerfile_dir="$(realpath "$(dirname "$dockerfile")")"
+
+git_root="$(cd "$dockerfile_dir" && git rev-parse --show-toplevel 2>/dev/null)"
 
 config_locations=(
+    "$dockerfile_dir/.hadolint.yaml"
+    "$dockerfile_dir/.hadolint.yml"
     "$PWD/.hadolint.yaml"
     "$PWD/.hadolint.yml"
 )
