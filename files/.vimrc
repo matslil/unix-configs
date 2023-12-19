@@ -35,10 +35,10 @@ Plugin 'vim-autoformat/vim-autoformat'
 Plugin 'tpope/vim-fugitive'
 
 " Keep ctags updated
-Plugin 'ludovicchabant/vim-gutentags'
+"Plugin 'ludovicchabant/vim-gutentags'
 
 " reStructuredText support
-Plugin 'habamax/vim-rst'
+"Plugin 'habamax/vim-rst'
 
 " Support .editorconfig files (https://editorconfig.org/)
 Plugin 'editorconfig/editorconfig-vim'
@@ -88,15 +88,37 @@ Plugin 'github/copilot.vim'
 "     https://github.com/python-lsp/python-lsp-server
 "     https://github.com/artempyanykh/marksman (should work with Ale out of
 "         the box)
-Plugin 'dense-analysis/ale'
+"Plugin 'dense-analysis/ale'
 
 " Read gradle.build and setup accordingly
 Plugin 'hsanson/vim-android'
+
+" Language server protocol (replaces most of ALE)
+Plugin 'prabirshrestha/vim-lsp'
+
+" Setup vim-lsp for most common language servers
+Plugin 'mattn/vim-lsp-settings'
+
+" Handle auto completion
+Plugin 'prabirshrestha/asyncomplete.vim'
+
+" Tie vim-lsp and asyncomplete.vim together
+Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 
 let g:linuxsty_patterns = [ "/usr/src/", "/linux" ]
 
 " Dissable editorconfig for Fugitive (Git) and remove (SCP) files
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+" In case asynccomplete.vim suggestion popups are too slow, uncomment the
+" following line:
+" let g:asyncomplete_auto_popup = 0
+
+" C-n and C-p normally selects next/previous completion, use tab for it too:
+" This is for asynccomplete.vim plugin.
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

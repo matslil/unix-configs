@@ -184,6 +184,12 @@ g<C-]>   Jump to tag if only one match, otherwise list matching tags
 ======   ==================
 
 ======   ==================
+Key      Auto-completion
+======   ==================
+<C-n>    First/next completion
+<C-p>    Previous completion
+
+======   ==================
 Key      Moving
 ======   ==================
 [a       `:previous`
