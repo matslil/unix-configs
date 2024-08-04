@@ -24,6 +24,15 @@ Install using `install` script. Host specific configurations are kept separately
    Host specific aliases.
    Keep simple, since it will be used by more shells than bash.
 
+./.gitconfig.local
+   User settings
+
+After install script has been run, do the following:
+
+1. Run `vim` and enter the following command:
+
+   :PluginUpdate
+
 Window manager
 ==============
 
