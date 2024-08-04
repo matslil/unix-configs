@@ -53,3 +53,5 @@
 	textconv=odt2txt
 [include]
 	path = ~/.gitconfig.local
+[init]
+	defaultBranch = main
