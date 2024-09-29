@@ -4,3 +4,6 @@
 [submodule "files/.vim/bundle/YouCompleteMe"]
 	path = files/.vim/bundle/YouCompleteMe
 	url = git@github.com:ycm-core/YouCompleteMe.git
+[submodule "files/.config/nvim"]
+	path = files/.config/nvim
+	url = https://github.com/LazyVim/starter
