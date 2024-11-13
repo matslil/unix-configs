@@ -114,5 +114,9 @@ fi
 if [ -f "$HOME/.environment.local" ]; then
     source "$HOME/.environment.local"
 fi
+
+if [ -f "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
+fi
 ##############################################################################
 # vim: expandtab tabstop=4 shiftwidth=4 softtabstop=4                        :
