@@ -71,7 +71,7 @@ while IFS= read -r -d '' file; do
     if ! check_create_file "$file"; then
         check_failed=1
     fi
-done < <(git ls-files -z files "${XDG_SESSION_TYPE:-}")
+done < <(git ls-files -z files ${XDG_SESSION_TYPE:-})
 
 if (( check_failed )); then
     printf 'Some file were not updated, remove them and re-run script if you want them updated too\n'
