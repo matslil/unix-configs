@@ -1,0 +1,12 @@
+.cache/
+.gvfs/
+git/
+Download/
+.mozilla/
+.local/
+backup/
+.npm/
+.cargo/
+.rustup/
+snap/
+build*/
